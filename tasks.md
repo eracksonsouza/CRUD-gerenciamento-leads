@@ -1,7 +1,7 @@
 Tarefas  
 Use este checklist para ajudar a organizar a sua entrega
 
-☐ Desenvolver a rota `POST /leads` para criar um novo lead  
+☐ Desenvolver a rota `POST /leads` para criar um novo lead - OK
 ☐ Desenvolver a rota `GET /leads` para listar todos os leads  
 ☐ Implementar a funcionalidade de busca por `name` e `email` na rota `GET /leads`  
 ☐ Desenvolver a rota `PUT /leads/:id` para atualizar um lead  

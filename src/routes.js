@@ -1,20 +1,32 @@
 import { Database } from "./database.js";
 import { randomUUID } from "node:crypto";
+import { buildRoutePath } from "./utils/route-path.js";
 
 const database = new Database();
 
 export const routes = [
   {
     method: "GET",
-    path: "/leads",
+    path: buildRoutePath("/leads"),
     handler: (req, res) => {
-      const leads = database.select("leads");
+      const { search } = req.query;
+
+      const leads = database.select(
+        "leads",
+        search
+          ? {
+              name: search,
+              email: search,
+            }
+          : null
+      );
+
       return res.writeHead(200).end(JSON.stringify(leads));
     },
   },
   {
     method: "POST",
-    path: "/leads",
+    path: buildRoutePath("/leads"),
     handler: (req, res) => {
       const { name, email } = req.body;
 

@@ -13,7 +13,8 @@
     {
       "id": "db280a80-cdd4-4177-a2f1-ed63207d2f57",
       "name": "antonio",
-      "email": "erackson@example.com"
+      "email": "erackson@example.com",
+      "contacted": true
     },
     {
       "id": "13d8ea56-6252-4453-992b-bf8f826a726d",

@@ -8,7 +8,7 @@ Use este checklist para ajudar a organizar a sua entrega
 ☐ Adicionar a validação de existência do `id` na rota `PUT /leads/:id`  - OK
 ☐ Desenvolver a rota `DELETE /leads/:id` para remover um lead   - ok 
 ☐ Adicionar a validação de existência do `id` na rota `DELETE /leads/:id`  - ok
-☐ Desenvolver a rota `PATCH /leads/:id/contact` para marcar um lead como contatado/não contatado  
+☐ Desenvolver a rota `PATCH /leads/:id/contact` para marcar um lead como contatado/não contatado  - ok
 ☐ Adicionar a validação de existência do `id` na rota `PATCH /leads/:id/contact`  
 ☐ Criar um script separado para a importação de leads  
 ☐ Utilizar a biblioteca `csv-parse` para ler o arquivo CSV de leads  

@@ -3,9 +3,9 @@ Use este checklist para ajudar a organizar a sua entrega
 
 ☐ Desenvolver a rota `POST /leads` para criar um novo lead - OK
 ☐ Desenvolver a rota `GET /leads` para listar todos os leads  - OK
-☐ Implementar a funcionalidade de busca por `name` e `email` na rota `GET /leads`  
-☐ Desenvolver a rota `PUT /leads/:id` para atualizar um lead  
-☐ Adicionar a validação de existência do `id` na rota `PUT /leads/:id`  
+☐ Implementar a funcionalidade de busca por `name` e `email` na rota `GET /leads`   - OK
+☐ Desenvolver a rota `PUT /leads/:id` para atualizar um lead  - OK
+☐ Adicionar a validação de existência do `id` na rota `PUT /leads/:id`  - OK
 ☐ Desenvolver a rota `DELETE /leads/:id` para remover um lead  
 ☐ Adicionar a validação de existência do `id` na rota `DELETE /leads/:id`  
 ☐ Desenvolver a rota `PATCH /leads/:id/contact` para marcar um lead como contatado/não contatado  

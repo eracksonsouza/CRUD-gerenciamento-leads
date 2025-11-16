@@ -43,4 +43,29 @@ export const routes = [
         .end(JSON.stringify({ message: "Lead criado com sucesso!", lead }));
     },
   },
+  {
+    method: "PUT",
+    path: buildRoutePath("/leads/:id"),
+    handler: (req, res) => {
+      const { id } = req.params;
+      const { name, email } = req.body;
+
+      const leadExists = database
+        .select("leads")
+        .find((lead) => lead.id === id);
+
+      if (!leadExists) {
+        return res
+          .writeHead(404)
+          .end(JSON.stringify({ message: "Lead nao encontrado" }));
+      }
+
+      database.update("leads", id, {
+        name,
+        email,
+      });
+
+      return res.writeHead(204).end();
+    },
+  },
 ];

@@ -1,0 +1,14 @@
+☐ criar rota post /leads @critical 
+✔ criar rota get /leads @done (16/11/2025, 00:26:51)
+✔ implementar busca por name e email na rota get /leads @done (16/11/2025, 00:26:49)
+
+sub-projeto  API:
+    ☐ criar rota put /leads/:id @high
+    ☐ adicionar validação de existência do id na rota put /leads/:id @medium
+    ☐ criar rota delete /leads/:id @high
+    ☐ adicionar validação de existência do id na rota delete /leads/:id @medium
+    ☐ criar rota patch /leads/:id/contact @medium
+    ☐ adicionar validação de existência do id na rota patch /leads/:id/contact @low
+    ☐ criar script separado para importação de leads @low
+    ✘ utilizar a biblioteca csv-parse para ler o arquivo CSV de leads @low @cancelled (16/11/2025, 00:27:58)
+    ✘ implementar a lógica de enviar requisição para post /leads para cada linha do CSV no script de importação @low @cancelled (16/11/2025, 00:27:53)

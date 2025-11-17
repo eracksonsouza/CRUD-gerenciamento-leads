@@ -1,11 +1,6 @@
 {
   "leads": [
     {
-      "id": "50d38bb7-5768-44cb-868f-d17353185b53",
-      "name": "Marcelo",
-      "email": "marcelo@example.com"
-    },
-    {
       "id": "08d23020-a111-401c-82e1-7915802d2d79",
       "name": "Erackson",
       "email": "erackson@example.com"
@@ -49,12 +44,8 @@
     {
       "id": "51f677f5-ad84-47c9-81f1-ff4986ac7579",
       "name": "Pedro Costa",
-      "email": "pedro@example.com"
-    },
-    {
-      "id": "2edeab37-4e59-4bfd-a288-ea02f314d41f",
-      "name": "Pedroca",
-      "email": " pedro@example.com"
+      "email": "pedro@example.com",
+      "contacted": true
     }
   ]
 }

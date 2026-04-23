@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CRM - Gerenciamento de Leads",
+    "description": "API REST para gerenciamento de leads de marketing. Permite criar, listar, atualizar, remover leads e marcar contatos realizados.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "Servidor local"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Leads",
+      "description": "Operações sobre leads"
+    }
+  ],
+  "paths": {
+    "/leads": {
+      "get": {
+        "tags": ["Leads"],
+        "summary": "Listar leads",
+        "description": "Retorna todos os leads. Use o parâmetro `search` para filtrar por nome ou e-mail.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Texto para buscar por nome ou e-mail",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de leads",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Lead" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Leads"],
+        "summary": "Criar lead",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LeadInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Lead criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string" },
+                    "lead": { "$ref": "#/components/schemas/Lead" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/leads/{id}": {
+      "put": {
+        "tags": ["Leads"],
+        "summary": "Atualizar lead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LeadInput" }
+            }
+          }
+        },
+        "responses": {
+          "204": { "description": "Lead atualizado" },
+          "404": { "description": "Lead não encontrado" }
+        }
+      },
+      "delete": {
+        "tags": ["Leads"],
+        "summary": "Remover lead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Lead removido" },
+          "404": { "description": "Lead não encontrado" }
+        }
+      }
+    },
+    "/leads/{id}/contact": {
+      "patch": {
+        "tags": ["Leads"],
+        "summary": "Alternar status de contato",
+        "description": "Marca ou desmarca o lead como contatado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Status atualizado" },
+          "404": { "description": "Lead não encontrado" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Lead": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid", "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890" },
+          "name": { "type": "string", "example": "Maria Silva" },
+          "email": { "type": "string", "format": "email", "example": "maria@email.com" },
+          "contacted": { "type": "boolean", "example": false }
+        }
+      },
+      "LeadInput": {
+        "type": "object",
+        "required": ["name", "email"],
+        "properties": {
+          "name": { "type": "string", "example": "Maria Silva" },
+          "email": { "type": "string", "format": "email", "example": "maria@email.com" }
+        }
+      }
+    }
+  }
+}

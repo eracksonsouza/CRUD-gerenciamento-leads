@@ -1,1 +1,6 @@
 node_modules/
+tasks.todo
+tasks.md
+.env
+src/db.json
+README-leads-desafio.md
